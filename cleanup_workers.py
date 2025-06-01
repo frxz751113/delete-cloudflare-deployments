@@ -23,8 +23,8 @@ def get_all_projects():
     """获取账号下所有的项目"""
     url = f"https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/pages/projects"
     headers = {
-        "Authorization": f"Bearer {API_TOKEN}",
-        "Content-Type": "application/json"
+        "authorization": f"Bearer {API_TOKEN}",
+        "content-Type": "application/json"
     }
     
     # 首先尝试获取所有项目，不使用分页
@@ -41,8 +41,8 @@ def get_deployments(project_name):
     """获取指定项目的所有部署记录"""
     url = f"https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/pages/projects/{project_name}/deployments"
     headers = {
-        "Authorization": f"Bearer {API_TOKEN}",
-        "Content-Type": "application/json"
+        "authorization": f"Bearer {API_TOKEN}",
+        "content-Type": "application/json"
     }
     
     response = requests.get(url, headers=headers)
@@ -58,8 +58,8 @@ def delete_deployment(project_name, deployment_id):
     """删除指定项目的指定部署记录"""
     url = f"https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/pages/projects/{project_name}/deployments/{deployment_id}"
     headers = {
-        "Authorization": f"Bearer {API_TOKEN}",
-        "Content-Type": "application/json"
+        "authorization": f"Bearer {API_TOKEN}",
+        "content-Type": "application/json"
     }
     
     response = requests.delete(url, headers=headers)
