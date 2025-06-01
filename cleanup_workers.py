@@ -111,4 +111,5 @@ def main():
                 print(f"正在删除部署 {deployment_id} (创建于 {created_date})")
                 if delete_deployment(project_name, deployment_id):
                     print(f"成功删除部署 {deployment_id}")
-                else:
+                else: # 这是第 114 行的 else 语句
+                    print(f"删除部署 {deployment_id} 失败") # 确保这行代码有正确的缩进
