@@ -1,11 +1,12 @@
 name: Cleanup Cloudflare Pages Deployments
 
 on:
-  #push:
-  #  branches: [ main ]
   schedule:
-    - cron: '0 0 * * *'  # 每天 UTC 0点运行
-  workflow_dispatch:      # 允许手动触发
+    - cron: '0 */12 * * *' # 这里更改自动运行的时间，每12小时运行一次
+  workflow_dispatch:
+    branches:
+      - main
+
 
 jobs:
   cleanup:
