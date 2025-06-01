@@ -101,15 +101,18 @@ def main():
             # 按创建时间排序
             sorted_deployments = sorted(deployments, key=lambda x: x['created_on'], reverse=True)
           
-            # 保留最新的10个部署，删除其余的
-            deployments_to_delete = sorted_deployments[10:]
+           # 保留最新的10个部署，删除其余的
+            deployments_to_delete = sorted_deployments[3:]
             print(f"本轮需要删除 {len(deployments_to_delete)} 个旧部署")
-          
+            
             for deployment in deployments_to_delete:
                 deployment_id = deployment['id']
                 created_date = datetime.fromisoformat(deployment['created_on'].replace('Z', '+00:00'))
                 print(f"正在删除部署 {deployment_id} (创建于 {created_date})")
                 if delete_deployment(project_name, deployment_id):
                     print(f"成功删除部署 {deployment_id}")
-                else: # 这是第 114 行的 else 语句
-                    print(f"删除部署 {deployment_id} 失败") # 确保这行代码有正确的缩进
+                else:
+                    print(f"删除部署 {deployment_id} 失败")
+
+if __name__ == "__main__":
+    main() 
