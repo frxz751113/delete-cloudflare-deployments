@@ -94,14 +94,14 @@ def main():
             print(f"当前获取到 {len(deployments)} 个部署记录")
           
             # 如果部署记录数量小于等于目标值，退出循环
-            if len(deployments) <= 10:
+            if len(deployments) <= 3:
                 print(f"项目 {project_name} 当前部署数量为 {len(deployments)}，不需要清理")
                 break
               
             # 按创建时间排序
             sorted_deployments = sorted(deployments, key=lambda x: x['created_on'], reverse=True)
           
-           # 保留最新的10个部署，删除其余的
+           # 保留最新的3个部署，删除其余的
             deployments_to_delete = sorted_deployments[3:]
             print(f"本轮需要删除 {len(deployments_to_delete)} 个旧部署")
             
